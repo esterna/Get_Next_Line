@@ -6,102 +6,12 @@
 /*   By: esterna <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 18:41:21 by esterna           #+#    #+#             */
-/*   Updated: 2017/05/16 17:30:39 by esterna          ###   ########.fr       */
+/*   Updated: 2017/05/16 17:45:15 by esterna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "libft.h"
-
-void	ft_memdel(void **ap)
-{
-	free(*ap);
-	*ap = NULL;
-}
-
-void		ft_bzero(void *src, size_t n)
-{
-	size_t		i;
-	char		*tmp;
-
-	i = 0;
-	tmp = src;
-	while (i < n)
-	{
-		tmp[i] = 0;
-		i++;
-	}
-}
-
-size_t		ft_strlen(const char *str)
-{
-	size_t i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-
-char	*ft_strnew(size_t size)
-{
-	size_t	i;
-	char	*tmp;
-
-	i = 0;
-	tmp = (char *)malloc(sizeof(char) * (size + 1));
-	if (tmp == NULL)
-		return (NULL);
-	while (i <= size)
-	{
-		tmp[i] = '\0';
-		i++;
-	}
-	tmp[i] = '\0';
-	return (tmp);
-}
-
-char	*ft_strcpy(char *dest, const char *src)
-{
-	char *cpydst;
-
-	cpydst = dest;
-	while (*src != 0)
-		*cpydst++ = *src++;
-	*cpydst = *src;
-	return (dest);
-}
-
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	int		i;
-	int		len;
-	char	*ns;
-
-	i = 0;
-	if (!s1 || !s2)
-		return (NULL);
-	len = ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1;
-	ns = ft_strnew(len);
-	if (!ns)
-		return (NULL);
-	while (*s1)
-	{
-		ns[i] = *s1;
-		s1++;
-		i++;
-	}
-	while (*s2)
-	{
-		ns[i] = *s2;
-		s2++;
-		i++;
-	}
-	ns[i] = '\0';
-	return (ns);
-}
 
 void		array_setup(char **line, char *buf, char *overflow)
 {
