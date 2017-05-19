@@ -1,11 +1,14 @@
 NAME = get_next_line
 CFLAGS = -Wall -Wextra -Werror
-FUNCTIONS = $(wildcard *.c)
+DEPS = libft.a
+FUNCTIONS = get_next_line.c\
+		robin_main.c\
+		alloc-wrap.c
 
 all: $(NAME)
 
 $(NAME): $(OBJ) 
-	gcc $(CFLAGS) -o $@ $(FUNCTIONS)
+	gcc $(CFLAGS) -o $@ $(FUNCTIONS) $(DEPS)
 
 clean:
 
