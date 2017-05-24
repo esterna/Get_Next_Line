@@ -1,9 +1,8 @@
 NAME = get_next_line
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 DEPS = libft.a
-FUNCTIONS = get_next_line.c\
-		robin_main.c\
-		alloc-wrap.c
+FUNCTIONS = gnl_2.c\
+			main.c
 
 all: $(NAME)
 

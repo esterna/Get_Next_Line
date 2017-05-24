@@ -6,7 +6,7 @@
 /*   By: esterna <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 19:02:36 by esterna           #+#    #+#             */
-/*   Updated: 2017/05/18 21:18:14 by esterna          ###   ########.fr       */
+/*   Updated: 2017/05/23 15:17:05 by esterna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ int			main(int argc, char **argv)
 	fd = open(*argv, O_RDONLY);
 	while (get_next_line(fd, &ptr) > 0)
 		printf("%s\n", ptr);
+	printf("%s", ptr);
 	return (0);
 }

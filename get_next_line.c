@@ -6,7 +6,7 @@
 /*   By: esterna <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 18:41:21 by esterna           #+#    #+#             */
-/*   Updated: 2017/05/18 21:24:52 by esterna          ###   ########.fr       */
+/*   Updated: 2017/05/23 16:11:02 by esterna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int			get_next_line(const int fd, char **line)
 	if (buf == NULL || overflow == NULL || fd < 0)
 		return (0);
 	n = read_loop(fd, rd, buf, &overflow);
-	if (n == -2 || (n == -1 && !*overflow) || (*rd == 0 && !ft_strlen(buf)))
+	if (n == -2 || (n == -1 && !*overflow) || (*rd == 0 && !ft_strlen(buf) && BUFF_SIZE > 1))
 	{
 		*line = (char *)malloc(sizeof(char) * 1);
 		(*line)[0] = '\0';
@@ -103,5 +103,5 @@ int			get_next_line(const int fd, char **line)
 	}
 	fill_line(line, &buf, &overflow, n);
 	location = lseek(fd, location + ft_strlen(*line) + 1, SEEK_SET);
-	return ((*rd == 0 || *line == NULL) ? 0 : 1);
+	return ((*rd == 0 && *line == NULL) ? 0 : 1);
 }
