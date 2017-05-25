@@ -1,7 +1,7 @@
 NAME = get_next_line
 CFLAGS = -Wall -Wextra -Werror -g
 DEPS = libft.a
-FUNCTIONS = gnl_2.c\
+FUNCTIONS = gnl_real.c\
 			main.c
 
 all: $(NAME)

@@ -18,29 +18,10 @@
 int			main()
 {
 	char *line;
-	int fd = 1;
-
-	write(fd, "abcd\n", 5);
-	write(fd, "efgh\n", 5);
-	write(fd, "ijkl\n", 5);
-	write(fd, "mnofd\n", 5);
-	write(fd, "qrst\n", 5);
-	write(fd, "uvwx\n", 5);
-	write(fd, "yzab\n", 5);
-	get_next_line(fd, &line);
-	printf("%d\n", ft_strcmp(line, "abcd"));
-	get_next_line(fd, &line);
-	printf("%d\n", ft_strcmp(line, "efgh"));
-	get_next_line(fd, &line);
-	printf("%d\n", ft_strcmp(line, "ijkl"));
-	get_next_line(fd, &line);
-	printf("%d\n", ft_strcmp(line, "mnofd"));
-	get_next_line(fd, &line);
-	printf("%d\n", ft_strcmp(line, "qrst"));
-	get_next_line(fd, &line);
-	printf("%d\n", ft_strcmp(line, "uvwx"));
-	get_next_line(fd, &line);
-	printf("%d\n", ft_strcmp(line, "yzab"));
-
+	while (get_next_line(0, &line) == 1)
+	{
+		printf("Result: %s\n", line);
+		free(line);
+	}
 	return (0);
 }
