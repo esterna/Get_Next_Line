@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esterna <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/09 18:44:20 by esterna           #+#    #+#             */
-/*   Updated: 2017/07/07 16:54:59 by esterna          ###   ########.fr       */
+/*   Created: 2017/03/02 17:28:11 by esterna           #+#    #+#             */
+/*   Updated: 2017/03/12 22:07:08 by esterna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <fcntl.h>
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	char	*tmp;
 
-# define BUFF_SIZE	1
-# define MAX_FD		1024
-
-int			get_next_line(const int fd, char **line);
-
-#endif
+	i = 0;
+	tmp = (char *)malloc(sizeof(char) * (len + 1));
+	if (!tmp || !s)
+		return (NULL);
+	while (i < len)
+	{
+		tmp[i] = s[start];
+		i++;
+		start++;
+	}
+	tmp[i] = '\0';
+	return (tmp);
+}
